@@ -49,7 +49,6 @@
 import { computed } from 'vue'
 import { useDashboardStore } from '../store/dashboardStore'
 import KpiCard from '../components/KpiCard.vue'
-import TableCard from '../components/TableCard.vue'
 
 const store = useDashboardStore()
 
@@ -64,7 +63,6 @@ const row1Kpis = computed(() => {
   kpiKeysEstrategico.forEach(k => result[k] = (store.kpis as any)[k])
   return result
 })
-const row2Kpis = computed(() => ({})) // Emptied for now
 
 const chartOptionsLeadTime = {
   chart: { id: 'lead-time', toolbar: { show: false } },

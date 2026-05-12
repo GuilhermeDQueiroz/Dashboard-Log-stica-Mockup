@@ -367,9 +367,9 @@ const statusPage = ref(1)
 const statusTableHeaders = [
   { title: 'PEDIDO', key: 'pedido', sortable: true },
   { title: 'CLIENTE', key: 'cliente', sortable: true },
-  { title: 'VOL.', key: 'volume', align: 'end', sortable: true },
-  { title: 'M3', key: 'm3', align: 'end', sortable: true },
-  { title: 'PESO', key: 'peso', align: 'end', sortable: true }
+  { title: 'VOL.', key: 'volume', align: 'end' as const, sortable: true },
+  { title: 'M3', key: 'm3', align: 'end' as const, sortable: true },
+  { title: 'PESO', key: 'peso', align: 'end' as const, sortable: true }
 ]
 
 
@@ -386,15 +386,15 @@ const detalheHeaders = [
   { title: 'EMISSÃO', key: 'emissao', sortable: true },
   { title: 'CÓD.', key: 'cod', sortable: true },
   { title: 'CLIENTE', key: 'cliente', sortable: true, minWidth: '200px' },
-  { title: 'ANTEC. R$', key: 'indicators.antec', align: 'center' },
-  { title: 'ASS. REC.', key: 'indicators.ass', align: 'center' },
-  { title: 'M³', key: 'm3', align: 'end' },
-  { title: 'PESO', key: 'peso', align: 'end' },
-  { title: 'R$ EM CARGA', key: 'rsEmCarga', align: 'end' },
-  { title: 'R$ FRETE', key: 'rsFrete', align: 'end' },
-  { title: '% FRETE', key: 'percFrete', align: 'end' },
-  { title: 'R$ PEDIDO', key: 'rsPedido', align: 'end' },
-  { title: 'VOLUMES', key: 'volumes', align: 'end' },
+  { title: 'ANTEC. R$', key: 'indicators.antec', align: 'center' as const },
+  { title: 'ASS. REC.', key: 'indicators.ass', align: 'center' as const },
+  { title: 'M³', key: 'm3', align: 'end' as const },
+  { title: 'PESO', key: 'peso', align: 'end' as const },
+  { title: 'R$ EM CARGA', key: 'rsEmCarga', align: 'end' as const },
+  { title: 'R$ FRETE', key: 'rsFrete', align: 'end' as const },
+  { title: '% FRETE', key: 'percFrete', align: 'end' as const },
+  { title: 'R$ PEDIDO', key: 'rsPedido', align: 'end' as const },
+  { title: 'VOLUMES', key: 'volumes', align: 'end' as const },
   { title: 'PREVISÃO', key: 'previsao' },
   { title: 'CONSULTOR', key: 'consultor' }
 ]
@@ -402,16 +402,16 @@ const detalheHeaders = [
 const cargasTableHeaders = [
   { title: 'CARGA', key: 'carga', sortable: true },
   { title: 'DESCRIÇÃO', key: 'desc', sortable: true, minWidth: '200px' },
-  { title: 'QTD. DOC.', key: 'qtdDoc', align: 'end' },
-  { title: 'PESO', key: 'peso', align: 'end' },
-  { title: 'M³', key: 'm3', align: 'end' },
-  { title: 'R$ CARGA', key: 'rsCarga', align: 'end' },
-  { title: 'R$ PEDIDO', key: 'rsPedido', align: 'end' },
-  { title: '% FRETE', key: 'percFrete', align: 'end' },
-  { title: 'R$ FRETE', key: 'rsFrete', align: 'end' },
-  { title: 'R$ COMBINADO', key: 'rsCombinado', align: 'end' },
-  { title: 'DIF. FRETE', key: 'difFrete', align: 'end' },
-  { title: 'VOLUMES', key: 'volumes', align: 'end' },
+  { title: 'QTD. DOC.', key: 'qtdDoc', align: 'end' as const },
+  { title: 'PESO', key: 'peso', align: 'end' as const },
+  { title: 'M³', key: 'm3', align: 'end' as const },
+  { title: 'R$ CARGA', key: 'rsCarga', align: 'end' as const },
+  { title: 'R$ PEDIDO', key: 'rsPedido', align: 'end' as const },
+  { title: '% FRETE', key: 'percFrete', align: 'end' as const },
+  { title: 'R$ FRETE', key: 'rsFrete', align: 'end' as const },
+  { title: 'R$ COMBINADO', key: 'rsCombinado', align: 'end' as const },
+  { title: 'DIF. FRETE', key: 'difFrete', align: 'end' as const },
+  { title: 'VOLUMES', key: 'volumes', align: 'end' as const },
   { title: 'PRE. FAT.', key: 'preFat' },
   { title: 'FECHAMENTO', key: 'fechamento' },
   { title: 'LIBERAÇÃO', key: 'liberacao' },
@@ -550,11 +550,11 @@ watch(showRoteirizacao, async (newVal) => {
           className: 'custom-popup'
         })
         
-        marker.on('mouseover', function (e: any) {
-            this.openPopup()
+        marker.on('mouseover', () => {
+            marker.openPopup()
         })
-        marker.on('mouseout', function (e: any) {
-            this.closePopup()
+        marker.on('mouseout', () => {
+            marker.closePopup()
         })
       })
     } else {

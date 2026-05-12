@@ -47,7 +47,7 @@ const mappedHeaders = computed(() => {
   return props.headers.map((title, index) => ({
     title: title.toUpperCase(),
     key: keys[index],
-    align: 'start',
+    align: 'start' as const,
     sortable: true
   }))
 })
