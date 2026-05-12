@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import PainelEstrategico from '../views/PainelEstrategico.vue'
 import PainelOperacional from '../views/PainelOperacional.vue'
 
@@ -20,7 +20,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
